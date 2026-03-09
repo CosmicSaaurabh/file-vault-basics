@@ -142,4 +142,13 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.MultiPartParser',
         'rest_framework.parsers.FormParser',
     ],
+    'DEFAULT_THROTTLE_CLASSES': [
+        'files.throttling.UserIdRateThrottle',
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        'user_id': '2/second',
+    }
 }
+
+# Custom settings
+MAX_STORAGE_PER_USER = 10 * 1024 * 1024  # 10 MB
